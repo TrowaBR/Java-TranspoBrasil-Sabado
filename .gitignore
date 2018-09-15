@@ -25,4 +25,7 @@ hs_err_pid*
 # User
 .metadata
 .recommenders
+*.classpath
+*.project
+*.settings
 RemoteSystemsTempFiles
