@@ -9,7 +9,7 @@ public class Exercicio09 {
 		Scanner scanner = new Scanner(System.in);
 
 		System.out.print("Digite uma frase: ");
-		String frase = scanner.nextLine();
+		String frase = scanner.nextLine().trim();
 
 		String palavra = frase.substring(frase.lastIndexOf(" ") + 1);
 
