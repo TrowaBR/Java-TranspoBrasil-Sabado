@@ -69,7 +69,7 @@ public class CadastroContato {
 		} else {
 			for (int i = 0; i < quantidade; i++) {
 				contato = controller.buscarContato(i);
-				System.out.printf("%s - %s - %s\n", contato.nome, contato.email, contato.telefone);
+				System.out.printf("%s - %s - %s\n", contato.getNome(), contato.getEmail(), contato.getTelefone());
 			}
 		}
 	}

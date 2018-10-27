@@ -8,9 +8,9 @@ public class ContatoController {
 	public void criarContato(String nome, String email, String telefone) {
 		if (quantidade < lista.length) {
 			Contato contato = new Contato();
-			contato.nome = nome;
-			contato.email = email;
-			contato.telefone = telefone;
+			contato.setNome(nome);
+			contato.setEmail(email);
+			contato.setTelefone(telefone);
 			lista[quantidade++] = contato;
 			System.out.println("Contato cadastrado com sucesso!");
 		} else {

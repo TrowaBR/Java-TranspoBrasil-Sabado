@@ -1,4 +1,4 @@
-package br.com.cursojava.aula005;
+package br.com.cursojava.aula006;
 
 public class Contato {
 
