@@ -6,6 +6,17 @@ public class Produto {
 	private String descricao;
 	private float valor;
 
+	public Produto() {
+		super();
+	}
+
+	public Produto(String nome, String descricao, float valor) {
+		this();
+		this.nome = nome;
+		this.descricao = descricao;
+		this.valor = valor;
+	}
+
 	public String getNome() {
 		return nome;
 	}

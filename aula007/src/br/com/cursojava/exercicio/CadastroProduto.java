@@ -52,7 +52,7 @@ public class CadastroProduto {
 		System.out.print("Valor: ");
 		float valor = Float.parseFloat(scanner.nextLine());
 
-		controller.add(nome, descricao, valor);
+		controller.criarProduto(nome, descricao, valor);
 	}
 
 	private void listarProdutos() {

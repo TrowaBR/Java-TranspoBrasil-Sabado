@@ -11,12 +11,8 @@ public class ProdutoController {
 		lista = new ArrayList<Produto>();
 	}
 
-	public void add(String nome, String descricao, float valor) {
-		Produto p = new Produto();
-		p.setNome(nome);
-		p.setDescricao(descricao);
-		p.setValor(valor);
-		lista.add(p);
+	public boolean criarProduto(String nome, String descricao, float valor) {
+		return lista.add(new Produto(nome, descricao, valor));
 	}
 	
 	public Produto get(int index) {
