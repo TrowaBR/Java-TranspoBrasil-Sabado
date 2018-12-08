@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<head>
+	<title>Início</title>
+</head>
+<body>
+	<h1>Lista de produtos</h1>
+	<div>
+		<h:dataTable value="#{produtoBean.produtos}" var="produto">
+			<h:column>
+				<f:facet name="header">Id</f:facet>
+				<h:outputText value="#{produto.id}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Nome</f:facet>
+				<h:outputText value="#{produto.nome}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Preço</f:facet>
+				<h:outputText value="#{produto.preco}" />
+			</h:column>
+		</h:dataTable>
+	</div>
+</body>
+
+</html>
