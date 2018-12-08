@@ -86,32 +86,4 @@ public class RepositorioContato {
 		em.getTransaction().commit();
 		em.close();
 	}
-
-//	public static void main(String[] args) {
-//		EntityManager em = JPAUtil.createEntityManager();
-//
-////		Contato c = new Contato();
-////		c.setNome("Bagrinho");
-////		c.setEmail("b@teste.com");
-////		c.setNome("999887700");
-////		em.getTransaction().begin();
-////		em.persist(c);
-////		em.getTransaction().commit();
-//		
-////		Contato c = em.find(Contato.class, 1);
-////		c.setNome("Bagrinho da Silva");
-////		em.getTransaction().begin();
-////		em.getTransaction().commit();
-//
-//		Contato c = em.find(Contato.class, 1);
-//		c.setNome("Bagrinho da Silva");
-//		em.close();
-//		em = JPAUtil.createEntityManager();
-//		contato = em.merge(contato);
-//		em.getTransaction().begin();
-//		em.getTransaction().commit();
-//
-//		em.close();
-//		JPAUtil.closeEmf();
-//	}
 }
