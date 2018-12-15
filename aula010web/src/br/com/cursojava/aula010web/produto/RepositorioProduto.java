@@ -11,7 +11,7 @@ public class RepositorioProduto {
 	
 	public List<Produto> buscarTodos() {
 		EntityManager em = JPAUtil.createEntityManager();
-		TypedQuery<Produto> query = em.createQuery("select p from Produto p", Produto.class);
+		TypedQuery<Produto> query = em.createQuery("select p from Produto p order by id", Produto.class);
 		List<Produto> lista = query.getResultList();
 		em.close();
 		return lista;
@@ -19,9 +19,9 @@ public class RepositorioProduto {
 	
 	public Produto buscarPorId(Integer id) {
 		EntityManager em = JPAUtil.createEntityManager();
-		Produto c = em.find(Produto.class, id);
+		Produto p = em.find(Produto.class, id);
 		em.close();
-		return c;
+		return p;
 	}
 
 	public List<Produto> buscarPorValor(double min, double max) {
@@ -49,27 +49,41 @@ public class RepositorioProduto {
 
 	private Produto atualizar(Produto produto) {
 		EntityManager em = JPAUtil.createEntityManager();
-		em.getTransaction().begin();
-		produto = em.merge(produto);
-		em.getTransaction().commit();
+		try {
+			em.getTransaction().begin();
+			produto = em.merge(produto);
+			em.getTransaction().commit();
+		} catch (Exception e) {
+			produto = null;
+		}
 		em.close();
 		return produto;
 	}
 
 	private Produto inserir(Produto produto) {
 		EntityManager em = JPAUtil.createEntityManager();
-		em.getTransaction().begin();
-		em.persist(produto);
-		em.getTransaction().commit();
+		try {
+			em.getTransaction().begin();
+			em.persist(produto);
+			em.getTransaction().commit();
+		} catch (Exception e) {
+			produto = null;
+		}
 		em.close();
 		return produto;
 	}
 	
-	public void remover(Produto produto) {
+	public Produto remover(Produto produto) {
 		EntityManager em = JPAUtil.createEntityManager();
-		em.getTransaction().begin();
-		em.remove(em.merge(produto));
-		em.getTransaction().commit();
+		try {
+			em.getTransaction().begin();
+			produto = em.merge(produto);
+			em.remove(produto);
+			em.getTransaction().commit();
+		} catch (Exception e) {
+			produto = null;
+		}
 		em.close();
+		return produto;
 	}
 }
