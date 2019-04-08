@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<head>
+	<title>Formulário de clientes</title>
+	<link rel="stylesheet" href="#{request.contextPath}/resources/app/css/app.css" />
+</head>
+<body>
+	<div class="content">
+		<f:metadata>
+			<f:viewParam name="oid" value="#{clienteBean.oid}"></f:viewParam>
+		</f:metadata>
+		<h1>Formulário de clientes</h1>
+		<h:form>
+			<div class="messages-container">
+				<h:messages />
+			</div>
+			<div class="field">
+				<h:outputLabel value="Id" />
+				<h:inputText styleClass="is-fullwidth"
+					value="#{clienteBean.cliente.id}" readonly="#{true}" />
+			</div>
+			<div class="field">
+				<h:outputLabel value="Nome" />
+				<h:inputText styleClass="is-fullwidth" value="#{clienteBean.cliente.nome}" />
+			</div>
+			<div class="field">
+				<h:outputLabel value="CPF" />
+				<h:inputText styleClass="is-fullwidth" value="#{clienteBean.cliente.cpf}" />
+			</div>
+			<div class="field">
+				<h:outputLabel value="e-mail" />
+				<h:inputText styleClass="is-fullwidth" value="#{clienteBean.cliente.email}" />
+			</div>
+			<div class="field">
+				<h:outputLabel value="Telefone" />
+				<h:inputText styleClass="is-fullwidth" value="#{clienteBean.cliente.telefone}" />
+			</div>
+			<div class="field">
+				<h:commandButton styleClass="btn btn-primary is-fullwidth" action="#{clienteBean.salvar()}" value="Salvar" />
+			</div>
+			<div class="field">
+				<h:commandButton styleClass="btn btn-delete is-fullwidth" action="#{clienteBean.remover()}" value="Excluir" />
+			</div>
+		</h:form>
+		<h:outputLink value="../index.xhtml">Voltar</h:outputLink>
+	</div>
+</body>
+
+</html>

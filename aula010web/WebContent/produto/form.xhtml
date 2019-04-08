@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<head>
+	<title>Formulário de produtos</title>
+	<link rel="stylesheet" href="#{request.contextPath}/resources/app/css/app.css" />
+</head>
+<body>
+	<div class="content">
+		<f:metadata>
+			<f:viewParam name="oid" value="#{produtoBean.oid}"></f:viewParam>
+		</f:metadata>
+		<h1>Formulário de produtos</h1>
+		<h:form>
+			<div class="messages-container">
+				<h:messages />
+			</div>
+			<div class="field">
+				<h:outputLabel value="Id" />
+				<h:inputText styleClass="is-fullwidth"
+					value="#{produtoBean.produto.id}" readonly="#{true}" />
+			</div>
+			<div class="field">
+				<h:outputLabel value="Nome" />
+				<h:inputText styleClass="is-fullwidth"
+					value="#{produtoBean.produto.nome}" />
+			</div>
+			<div class="field">
+				<h:outputLabel value="Preço" />
+				<h:inputText styleClass="is-fullwidth" value="#{produtoBean.produto.preco}">
+					<f:convertNumber
+						groupingUsed="false"
+						maxFractionDigits="2"
+						minFractionDigits="2"
+						locale="pt_BR" />
+				</h:inputText>
+			</div>
+			<div class="field">
+				<h:commandButton styleClass="btn btn-primary is-fullwidth" action="#{produtoBean.salvar()}" value="Salvar" />
+			</div>
+			<div class="field">
+				<h:commandButton styleClass="btn btn-delete is-fullwidth" action="#{produtoBean.remover()}" value="Excluir" />
+			</div>
+		</h:form>
+		<h:outputLink value="../index.xhtml">Voltar</h:outputLink>
+	</div>
+</body>
+
+</html>

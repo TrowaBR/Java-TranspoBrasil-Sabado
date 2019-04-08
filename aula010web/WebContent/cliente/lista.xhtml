@@ -6,31 +6,39 @@
 	xmlns:f="http://java.sun.com/jsf/core">
 
 <head>
-	<title>Lista de produtos</title>
+	<title>Lista de clientes</title>
 	<link rel="stylesheet" href="#{request.contextPath}/resources/app/css/app.css" />
 </head>
 <body>
 	<div class="content">
-		<h1>Lista de produtos</h1>
+		<h1>Lista de clientes</h1>
 		<h:outputLink value="./form.xhtml">
 			<f:param name="oid" value="novo" />
 			<h:outputText value="Novo" />
 		</h:outputLink>
-		<h:dataTable value="#{produtoBean.produtos}" var="produto" width="100%">
+		<h:dataTable value="#{clienteBean.clientes}" var="cliente" width="100%">
 			<h:column>
 				<f:facet name="header">Id</f:facet>
-				<h:outputText value="#{produto.id}" />
+				<h:outputText value="#{cliente.id}" />
 			</h:column>
 			<h:column>
 				<f:facet name="header">Nome</f:facet>
 				<h:outputLink value="./form.xhtml?">
-					<f:param name="oid" value="#{produto.id}" />
-					<h:outputText value="#{produto.nome}" />
+					<f:param name="oid" value="#{cliente.id}" />
+					<h:outputText value="#{cliente.nome}" />
 				</h:outputLink>
 			</h:column>
 			<h:column>
-				<f:facet name="header">Preço</f:facet>
-				<h:outputText value="#{produto.preco}" />
+				<f:facet name="header">CPF</f:facet>
+				<h:outputText value="#{cliente.cpf}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">e-mail</f:facet>
+				<h:outputText value="#{cliente.email}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Telefone</f:facet>
+				<h:outputText value="#{cliente.telefone}" />
 			</h:column>
 		</h:dataTable>
 		<h:outputLink value="../index.xhtml">Voltar</h:outputLink>
